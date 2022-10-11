@@ -1,0 +1,154 @@
+
+<!--
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+   
+   <link rel="stylesheet" href="emailriders.css" /> 
+   <script src="/public/emailserver.js" ></script>
+   <script src="mailapp.js" ></script>
+    <title><br>m_riders_email</br></title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+</head>
+<body>
+  
+  JavaScript Bundle with Popper 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+    <h1>Smart Mobility</h1> <br>
+    <h3><b>Send an Email to Rider</b></h3><br>
+    
+      <div class="form-container">
+        <form  class="contact-form" ><br>
+            <input type="text" id="full_name" placeholder="Full name" required><br>
+            <input type="email" id="email" placeholder="Email"   required><br>
+            <input type="text" id="subject" placeholder="Subject" ><br>
+            <textarea id="message" placeholder="message" cols="50" rows="30"></textarea><br>
+            <button class="button button1" type="submit"   >Send</button>
+       </form>
+     </div>
+     <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.1.3/firebase-app.js";
+        import { getDatabase, ref, set, onValue, update, remove } from "https://www.gstatic.com/firebasejs/9.1.3/firebase-database.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+      
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+          //****************** add your configaration here *******************//
+          apiKey: "AIzaSyDghAAvMSGvON4Lmd-jop0VyjOiAC5t8lM",
+        authDomain: "smart-mobility-ios.firebaseapp.com",
+        databaseURL: "https://smart-mobility-ios-default-rtdb.firebaseio.com",
+        projectId: "smart-mobility-ios",
+        storageBucket: "smart-mobility-ios.appspot.com",
+        messagingSenderId: "727144855934",
+        appId: "1:727144855934:web:2ca21a0d262114a85ddb2f",
+        measurementId: "G-5SNWQ6NS22"
+      
+        };
+      
+          // Initialize Firebase
+           const app = initializeApp(firebaseConfig);
+           const database = getDatabase(app);
+      
+           saveData.addEventListener('click',(e) => {
+          var full_name = document.getElementById('full_name').value;
+          var email = document.getElementById('email').value;
+          var Subject = document.getElementById('subject').value;
+          var message = document.getElementById('message').value;
+      
+          set(ref(database, 'admin-send-email/'), {
+      
+           full_name: full_name,
+           email: email,
+           Subject: subject,
+           message: message
+      
+           });
+      
+          alert('saved');
+          });
+      </script>
+      </body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Messages | Firebase</title>
+    <link rel="stylesheet" href="emailriders.css">
+
+</head>
+  
+<body>
+
+<h1>Smart Mobility</h1><br>
+<h3>Send an Email to Rider</h3>
+      
+     <div class="form-container">
+        <form  class="contact-form" ><br>
+            <input type="text" id="full_name" placeholder="Full name" required><br>
+            <input type="email" id="email" placeholder="Email"   required><br>
+            <input type="test" id="subject" placeholder="Subject" ><br>
+            <textarea id="message" placeholder="message" cols="30" rows="10"></textarea><br>
+            <input  type="submit" class="submit" value="send">
+            <input id="saveData" type="submit" class="submit" value="save">
+        </form>
+
+      </div>
+
+    
+<script type="module">
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.1.3/firebase-app.js";
+      import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/9.1.3/firebase-database.js";
+      // TODO: Add SDKs for Firebase products that you want to use
+      // https://firebase.google.com/docs/web/setup#available-libraries
+    
+      // Your web app's Firebase configuration
+      const firebaseConfig = {
+        //****************** add your configaration here *******************//
+        apiKey: "AIzaSyDghAAvMSGvON4Lmd-jop0VyjOiAC5t8lM",
+      authDomain: "smart-mobility-ios.firebaseapp.com",
+      databaseURL: "https://smart-mobility-ios-default-rtdb.firebaseio.com",
+      projectId: "smart-mobility-ios",
+      storageBucket: "smart-mobility-ios.appspot.com",
+      messagingSenderId: "727144855934",
+      appId: "1:727144855934:web:2ca21a0d262114a85ddb2f",
+      measurementId: "G-5SNWQ6NS22"
+    
+      };
+    
+        // Initialize Firebase
+         const app = initializeApp(firebaseConfig);
+         const database = getDatabase(app);
+    
+         saveData.addEventListener('click',(e) => {
+        var full_name = document.getElementById('full_name').value;
+        var email = document.getElementById('email').value;
+        var subject = document.getElementById('subject').value;
+        var message = document.getElementById('message').value;
+    
+        set(ref(database, 'admin-email/' + full_name), {
+    
+         full_name: full_name,
+         email: email,
+         subject: subject,
+         message: message
+    
+         });
+    
+        alert('saved');
+        });
+</script>
+    <script src="mailapp.js"></script>
+ </body>
+</html>

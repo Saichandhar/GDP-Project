@@ -1,4 +1,19 @@
-body {
+* {
+    margin: auto;
+    padding: auto;
+  }
+  
+  h1 {
+    font-family: 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    height: 60px;
+    width: auto;
+    color: whitesmoke;
+    background-color: green;
+    text-align: center;
+    font-size: x-large;
+  }
+  
+  body {
     background-color: #344a72;
     font-family: "Roboto", sans-serif;
   }
@@ -19,7 +34,7 @@ body {
     background-color: white;
   }
   
-  h1 {
+  h3 {
     text-align: center;
     padding-top: 15px;
   }
@@ -31,6 +46,11 @@ body {
   form {
     width: 300px;
     margin-left: 20px;
+  }
+
+  form select
+  {
+    width: 300px;
   }
   
   form label {
@@ -47,26 +67,41 @@ body {
     border-radius: 6px;
     outline: none;
   }
+  /*
   input[type="button"] {
     width: 320px;
     height: 35px;
     margin-top: 20px;
     border: none;
-    background-color: #49c1a2;
+    background-color: green;
     color: white;
     font-size: 18px;
   }
+  */
+  
+  form button{
+    width: 305px;
+    height: 35px;
+    margin-top: 20px;
+    border: none;
+    background-color: green;
+    color: white;
+    font-size: 18px;
+  }
+  
   p {
     text-align: center;
     padding-top: 20px;
     font-size: 15px;
   }
+  
   .para-2 {
     text-align: center;
-    color: white;
+    color: black;
     font-size: 15px;
     margin-top: -10px;
   }
+  
   .para-2 a {
     color: #49c1a2;
   }

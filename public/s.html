@@ -1,7 +1,7 @@
 <html>
 <head>
 <title>CRUD</title>
-<link rel="stylesheet" href="cssFile.css">
+<!-- <link rel="stylesheet" href="cssFile.css"> -->
 </head>
 
 <body>
@@ -62,7 +62,7 @@
     var email = document.getElementById('email').value;
     var password = document.getElementById('password').value;
 
-    set(ref(database, 'admin-users/' + username), {
+    set(ref(database, 'signup/' + username), {
 
      username: username,
      email: email,
@@ -77,7 +77,7 @@
     getData.addEventListener('click',(e) => {
       var username = document.getElementById('username').value;
 
-      const starCountRef = ref(database, 'admin-users/' + username);
+      const starCountRef = ref(database, 'signup/' + username);
       onValue(starCountRef, (snapshot) => {
       const data = snapshot.val(); // data = all data on firebse
       
@@ -85,25 +85,25 @@
       })
     });
 
-    // update data
-    updateData.addEventListener('click',(e) => {
-     var username = document.getElementById('username').value;
-     var email = document.getElementById('email').value;
+    // // update data
+    // updateData.addEventListener('click',(e) => {
+    //  var username = document.getElementById('username').value;
+    //  var email = document.getElementById('email').value;
       
-    update(ref(database, 'admin-users/' + username),{
-      email: email,
-      username: username, 
-      })
-      alert('updated');
-    });
+    // update(ref(database, 'signup/' + username),{
+    //   email: email,
+    //   username: username, 
+    //   })
+    //   alert('updated');
+    // });
 
-    // remove data
-    removeData.addEventListener('click',(e) => {
-     var username = document.getElementById('username').value;
+    // // remove data
+    // removeData.addEventListener('click',(e) => {
+    //  var username = document.getElementById('username').value;
     
-     remove(ref(database, 'admin-users/' + username));
-     alert('removed');
-    });
+    //  remove(ref(database, 'signup/' + username));
+    //  alert('removed');
+    // });
 
 </script>
 

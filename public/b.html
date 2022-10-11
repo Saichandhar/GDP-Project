@@ -15,20 +15,15 @@
       <h3>Sign Up</h3>
       <br>
       <form>
-        <label> First Name</label>
         <input type="text" id="Firstname" name="Firstname" placeholder="Firstname" />
-        <label> Last Name</label>
         <input type="text" id="Lastname" name="Lastname" placeholder="Lastname" />
-        <label> E-mail</label>
         <input type="text" id="email" name="email" placeholder="E-mail" />
-        <label> Phone Numeber</label>
         <input type="text" id="phonenumber" name="phonenumber" placeholder="phonenumber" />
-        <label> Password</label>
         <input type="password" id="password" name="password" placeholder="Password" />
-        <label> Retype - Password</label>
-        <input type="password" id="password2" name="password2" placeholder="Retype password" />&emsp;
+        <input type="password" id="password2" name="password2" placeholder="Retype password" />
         
         <input type="submit" id="saveData" name="signup_submit" value="save" />
+        <input type="submit" id="getData" name="signup_submit" value="get" />
         <!-- <input type="submit" id="updateData" name="signup_submit" value="update" />
         <input type="submit" id="removeData" name="signup_submit" value="remove" />
         <input type="submit" id="getData" name="signup_submit" value="getData" /> -->
@@ -37,13 +32,10 @@
         By clicking the Sign Up button,you agree to our <br />
         <a href="#">Terms and Condition</a> and <a href="#">Policy Privacy</a>
       </p>
-      <p class="para-2">
-        Already have an account? <a href="login.html">Login here</a>
-      </p>
     </div>
-    <!-- <p class="para-2">
+    <p class="para-2">
       Already have an account? <a href="login.html">Login here</a>
-    </p> -->
+    </p>
   </body>
     
     <script type="module">
@@ -91,17 +83,17 @@
         alert('saved');
         });
     
-        // // get data
-        // getData.addEventListener('click',(e) => {
-        //   var Firstname = document.getElementById('Firstname').value;
+        // get data
+        getData.addEventListener('click',(e) => {
+          var Firstname = document.getElementById('Firstname').value;
     
-        //   const starCountRef = ref(database, 'admin-users/' + Firstname);
-        //   onValue(starCountRef, (snapshot) => {
-        //   const data = snapshot.val(); // data = all data on firebse
+          const starCountRef = ref(database, 'admin-signup-users/' + Firstname);
+          onValue(starCountRef, (snapshot) => {
+          const data = snapshot.val(); // data = all data on firebse
           
-        //   document.getElementById('email').value = data.email;
-        //   })
-        // });
+          document.getElementById('email').value = data.email;
+          })
+        });
     
         // // update data
         // updateData.addEventListener('click',(e) => {
